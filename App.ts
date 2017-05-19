@@ -191,6 +191,7 @@ class App {
         this.express.use('/app/json/', express.static(__dirname + '/app/json'));
         this.express.use('/images', express.static(__dirname + '/img'));
         this.express.use('/', express.static(__dirname + '/pages'));
+        this.express.use('/', express.static(__dirname+'/dist'));
     }
 }
 export default new App().express;
