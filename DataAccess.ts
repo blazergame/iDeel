@@ -4,8 +4,7 @@ class DataAccess {
     static mongooseInstance: any;
     static mongooseConnection: Mongoose.Connection;
 
-    static DB_CONNECTION_STRING:string = 'mongodb://ideelAdmin:ideelAdmin2017@localhost:27017/ideeldb';
-
+	static DB_CONNECTION_STRING:string =  'mongodb://ideelAdmin:ideelAdmin2017@ds064299.mlab.com:64299/ideeldb';
 
     constructor () {
         DataAccess.connect();

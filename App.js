@@ -14,9 +14,6 @@ class App {
         this.express = express();
         this.middleware();
         this.routes();
-        //  this.idGenerator = 100;
-        //this.Lists = new ListModel();
-        //  this.Tasks = new TaskModel();
         this.Job = new JobModel_1.default();
         this.UserWorker = new UserWorkerModel_1.default();
         this.UserBusiness = new UserBusinessModel_1.default();
@@ -142,6 +139,7 @@ class App {
         this.express.use('/app/json/', express.static(__dirname + '/app/json'));
         this.express.use('/images', express.static(__dirname + '/img'));
         this.express.use('/', express.static(__dirname + '/pages'));
+        this.express.use('/', express.static(__dirname + '/dist'));
     }
 }
 exports.default = new App().express;

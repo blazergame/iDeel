@@ -4,11 +4,6 @@ import * as logger from 'morgan';
 import * as url from 'url';
 import * as bodyParser from 'body-parser';
 
-
-//import ListModel from './model/ListModel';
-//import TaskModel from './model/TaskModel';
-
-
 import DataAccess from './DataAccess';
 import JobModel from './model/JobModel';
 import UserWorkerModel from './model/UserWorkerModel';
@@ -19,12 +14,6 @@ class App {
     // ref to Express instance
     public express: express.Application;
 
-
-   // public Lists:ListModel;
-    //public Tasks:TaskModel;
-
-
-    // public idGenerator: number;
     public Job: JobModel;
     public UserWorker: UserWorkerModel;
     public UserBusiness: UserBusinessModel;
@@ -33,12 +22,6 @@ class App {
         this.express = express();
         this.middleware();
         this.routes();
-      //  this.idGenerator = 100;
-
-
-         //this.Lists = new ListModel();
-        //  this.Tasks = new TaskModel();
-
 
         this.Job = new JobModel();
         this.UserWorker = new UserWorkerModel();
