@@ -17,12 +17,13 @@ export default class UserBusinessModel {
     public createSchema(): void {
         this.schema =  mongoose.Schema(
             {
-                businessID: String,
+                businessID: Number,
                 firstName: String,
                 lastName: String,
                 email: String,
                 address: String,
-                zipcode: Number,
+                city: String,
+                zipcode: String,
                 jobTags: String,
                 companyName: String,
                 description: String,
@@ -30,6 +31,9 @@ export default class UserBusinessModel {
                 username: String,
                 password: String,
                 pictureID: Number,
+                subscribers: Array,
+                tags: Array,
+                employees: Array,
                // picturePhoto: {data:Buffer, contentType:String}
 
             }, {collection: 'userBusiness'}

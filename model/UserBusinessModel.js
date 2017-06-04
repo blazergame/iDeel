@@ -10,12 +10,13 @@ class UserBusinessModel {
     }
     createSchema() {
         this.schema = mongoose.Schema({
-            businessID: String,
+            businessID: Number,
             firstName: String,
             lastName: String,
             email: String,
             address: String,
-            zipcode: Number,
+            city: String,
+            zipcode: String,
             jobTags: String,
             companyName: String,
             description: String,
@@ -23,6 +24,9 @@ class UserBusinessModel {
             username: String,
             password: String,
             pictureID: Number,
+            subscribers: Array,
+            tags: Array,
+            employees: Array,
         }, { collection: 'userBusiness' });
     }
     createModel() {

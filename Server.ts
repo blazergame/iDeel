@@ -9,7 +9,7 @@ class Server {
 
   constructor() {
     debug('ts-express:server');
-    this.portValue = this.normalizePort(process.env.PORT || 3000);
+    this.portValue = this.normalizePort(process.env.PORT || 80);
     App.set('port', this.portValue);
 
     this.server = http.createServer(App);
@@ -44,29 +44,5 @@ class Server {
     else return false;
   }
 
-/*
-  public onError(error: NodeJS.ErrnoException): void {
-    if (error.syscall !== 'listen') throw error;
-    let bind = (typeof this.port === 'string') ? 'Pipe ' + this.port : 'Port ' + this.port;
-    switch(error.code) {
-      case 'EACCES':
-        console.error(`${bind} requires elevated privileges`);
-        process.exit(1);
-        break;
-      case 'EADDRINUSE':
-        console.error(`${bind} is already in use`);
-        process.exit(1);
-        break;
-      default:
-        throw error;
-    }
-  }
-
-  public onListening(): void {
-    let addr = this.server.address();
-    let bind = (typeof addr === 'string') ? `pipe ${addr}` : `port ${addr.port}`;
-    debug(`Listening on ${bind}`);
-  }
-*/
 }
 new Server();

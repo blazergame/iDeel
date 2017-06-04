@@ -17,18 +17,23 @@ export default class UserWorkerModel {
     public createSchema(): void {
         this.schema =  mongoose.Schema(
             {
-                workerID: String,
+                workerID: Number,
                 firstName: String,
                 lastName: String,
                 dob: String,
                 email: String,
+                city: String,
                 address: String,
-                zipcode: Number,
+                zipcode: String,
                 jobTags: String,
                 description: String,
                 username: String,
                 password: String,
                 pictureID: Number,
+                resume: String,
+                savedList: Array,
+                appliedList: Array,
+                subscribed: Array,
                 //picturePhoto: {data:Buffer, contentType:String}
             }, {collection: 'userWorker'}
 
