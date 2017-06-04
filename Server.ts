@@ -12,6 +12,8 @@ class Server {
     this.portValue = this.normalizePort(process.env.PORT || 80);
     App.set('port', this.portValue);
 
+    console.log("THIS IS THE PORT");
+    console.log(process.env.PORT);
     this.server = http.createServer(App);
     this.server.listen(this.portValue);
     this.server.on('error', (error: NodeJS.ErrnoException): void => {
