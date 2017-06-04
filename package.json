@@ -31,7 +31,7 @@
   },
   "scripts": {
     "test": "mocha",
-    "start": "nodemon Server.js"
+    "start": "node server.js"
   },
   "author": "",
   "license": "ISC"
