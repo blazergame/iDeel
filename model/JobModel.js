@@ -48,7 +48,7 @@ class JobModel {
     updateJob(req, res, id) {
         //this.model.findById(req.params.id, (err,job)=> {)
         console.log("inside express update");
-        this.model.updateOne({ "jobID": id }, (err, job) => {
+        this.model.findById({ "_id": id }, (err, job) => {
             console.log(req);
             job.title = req.body.title || job.title;
             job.description = req.body.description || job.description;
@@ -60,14 +60,12 @@ class JobModel {
             job.startDate = req.body.startDate || job.startDate;
             job.endDate = req.body.endDate || job.endDate;
             job.address = req.body.address || job.address;
-            console.log("did this work");
-            console.log(res);
-            // job.save((err,result) => {
-            //     if(err){
-            //         res.status(500).send(err)
-            //     }
-            //     res.send(result);
-            // });
+            job.save((err, result) => {
+                if (err) {
+                    res.status(500).send(err);
+                }
+                res.send(result);
+            });
         });
     }
     deleteJob(response, id) {
