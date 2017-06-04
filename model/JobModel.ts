@@ -55,15 +55,15 @@ export default class JobModel {
     
     public retreiveJob(response: any, filter:Object): any {
         var query = this.model.findOne(filter);
-        query.exec((err, data) => {
+         query.exec((err, data) => {
             response.json(data);
         });
     }
 
     public updateJob(req: any, res: any, id:Object): any {
-        //this.model.findByI(req.params.id, (err,job)=> {)
+        //this.model.findById(req.params.id, (err,job)=> {)
             console.log("inside express update");
-            console.log(res);
+
         this.model.updateOne({"jobID":id}, (err,job) => {
                 console.log(req);
                 job.title = req.body.title || job.title;
@@ -75,18 +75,19 @@ export default class JobModel {
                 job.salary = req.body.salary || job.salary;
                 job.startDate = req.body.startDate || job.startDate;
                 job.endDate = req.body.endDate || job.endDate;
-                job.availability = req.body.availability || job.availability;
                 job.address = req.body.address || job.address;
 
+               console.log("did this work");
+               console.log(res);
                
-                job.save((err,result) =>{
-                    if(err){
-                        res.status(500).send(err)
-                    }
-                    res.send(result);
-                });
-            
-        })        
+                // job.save((err,result) => {
+                //     if(err){
+                //         res.status(500).send(err)
+                //     }
+                //     res.send(result);
+                // });
+
+        });  
     }
 
     public deleteJob(response: any, id:Object): any {
